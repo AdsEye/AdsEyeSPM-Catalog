@@ -1,0 +1,58 @@
+# AdsEye iOS SDK <%= sdk_version %> SPM 接入清单
+
+生成组合：`<%= selection_name %>`  
+最低系统：iOS <%= minimum_ios %>
+
+## 接入规则
+
+1. 在 Xcode 中选择 **File > Add Package Dependencies...**，逐项添加下表 URL 和精确版本。
+2. 将表中的 Product **直接添加到 App target**，不要通过本地聚合 Package 间接链接。
+3. App target 的 `Other Linker Flags` 保留 `$(inherited) -ObjC`。
+4. 下方列出的资源 bundle 必须加入 App target 的 **Copy Bundle Resources**，并最终位于 App 根目录。
+
+## Package 列表
+
+| Package | 来源 | 精确版本 | Product | URL |
+| --- | --- | --- | --- | --- |
+<% packages.each do |package| -%>
+| `<%= package.fetch('id') %>` | `<%= package.fetch('origin') %>` | `<%= package.fetch('version') %>` | <%= package.fetch('products').map { |item| "`#{item}`" }.join(', ') %> | <%= package.fetch('url') %> |
+<% end -%>
+
+## Package.swift 片段
+
+仅当宿主本身由 Swift Package 管理时使用。普通 `.xcodeproj` 项目仍应在 Xcode 中把 Product 直接添加到 App target。
+
+```swift
+dependencies: [
+<% packages.each do |package| -%>
+    .package(url: "<%= package.fetch('url') %>", exact: "<%= package.fetch('version') %>"),
+<% end -%>
+]
+
+// App target dependencies
+[
+<% packages.each do |package| -%>
+<% package.fetch('products').each do |product| -%>
+    .product(name: "<%= product %>", package: "<%= package_identity(package.fetch('url')) %>"),
+<% end -%>
+<% end -%>
+]
+```
+
+## App 根目录资源
+
+<% if resources.empty? -%>
+当前组合没有需要手工复制到 App 根目录的资源。
+<% else -%>
+| Bundle | 来源 Package | 仓库路径 | 最终路径 |
+| --- | --- | --- | --- |
+<% resources.each do |resource| -%>
+| `<%= resource.fetch('bundle') %>` | `<%= resource.fetch('source_package') %>` | `<%= resource.fetch('source_path') %>` | `YourApp.app/<%= resource.fetch('bundle') %>` |
+<% end -%>
+<% end -%>
+
+## 已知事项
+
+<% known_issues.each do |issue| -%>
+- **<%= issue.fetch('title') %>**：<%= issue.fetch('description') %>
+<% end -%>

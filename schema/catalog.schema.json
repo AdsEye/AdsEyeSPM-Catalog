@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/AdsEye/AdsEyeSPM-Catalog/schema/catalog.schema.json",
+  "title": "AdsEye iOS SPM Catalog",
+  "type": "object",
+  "required": ["schema_version", "sdk", "sources", "packages", "groups", "profiles", "resources"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "sdk": {
+      "type": "object",
+      "required": ["platform", "version", "minimum_ios", "catalog_tag"],
+      "properties": {
+        "platform": { "const": "ios" },
+        "version": { "type": "string" },
+        "minimum_ios": { "type": "string" },
+        "catalog_tag": { "type": "string" }
+      }
+    },
+    "packages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "url", "version", "products", "origin"],
+        "properties": {
+          "id": { "type": "string" },
+          "url": { "type": "string", "pattern": "^https://github\\.com/.+\\.git$" },
+          "version": { "type": "string" },
+          "products": { "type": "array", "minItems": 1, "items": { "type": "string" } },
+          "origin": { "enum": ["adseye", "official", "mirror"] }
+        }
+      }
+    },
+    "transitive_packages": { "type": "array" },
+    "groups": { "type": "object" },
+    "profiles": { "type": "object" },
+    "resources": { "type": "array" }
+  }
+}

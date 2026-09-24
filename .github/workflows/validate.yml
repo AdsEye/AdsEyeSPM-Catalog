@@ -1,0 +1,21 @@
+name: Validate Catalog
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+      - run: ruby scripts/validate_catalog.rb
+      - name: Verify generated full guide
+        run: |
+          VERSION=$(ruby -ryaml -e 'puts YAML.load_file("latest.yaml").fetch("sdk_version")')
+          ruby scripts/generate_media_guide.rb --version "$VERSION" --profile full --output /tmp/full.md
+          diff -u "generated/$VERSION/full.md" /tmp/full.md
