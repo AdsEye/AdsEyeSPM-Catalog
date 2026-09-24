@@ -35,6 +35,7 @@
 - 每条记录必须有唯一 `id`、HTTPS GitHub URL、精确 `version` 和至少一个 `product`。
 - `id` 默认使用 Product 名称；同一 Product 不得由两个仓库重复提供。
 - `transitive_packages` 只锁定最终解析图中的传递仓库，不会进入媒体直接 Product 清单。
+- `transitive_packages.required_by` 必须记录产生该传递依赖的直接 Package，禁止根据 SDK 名称猜测归属。
 - 每次发布必须对照验证工程的 `Package.resolved`，确保传递仓库没有漏记。
 
 ## Profile 规则

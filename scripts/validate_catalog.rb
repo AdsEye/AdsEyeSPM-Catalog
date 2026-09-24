@@ -69,6 +69,8 @@ catalog_files.each do |path|
     package_version = package.fetch('version').to_s
     fail_with("#{id} URL 必须是 HTTPS GitHub .git：#{url}") unless url.match?(%r{\Ahttps://github\.com/.+\.git\z})
     fail_with("#{id} 缺少精确版本") if package_version.empty?
+    missing_parents = Array(package['required_by']).reject { |parent_id| ids.include?(parent_id) }
+    fail_with("#{id} required_by 引用了不存在的直接 Package：#{missing_parents.join(', ')}") unless missing_parents.empty?
 
     next unless options[:remote]
 

@@ -627,13 +627,19 @@
       "id": "SmartdigimktSDK",
       "url": "https://github.com/AdsEye/AdsEyeSPM-SmartdigimktSDK.git",
       "version": "6.5.65",
-      "origin": "mirror"
+      "origin": "mirror",
+      "required_by": [
+        "TPNMediationAdxSmartdigimktAdapter"
+      ]
     },
     {
       "id": "TPExchange",
       "url": "https://github.com/AdsEye/AdsEyeSPM-TPExchange.git",
       "version": "13.8.60",
-      "origin": "mirror"
+      "origin": "mirror",
+      "required_by": [
+        "TradPlusAdSDK"
+      ]
     },
     {
       "id": "OMSDK_Appodeal",
@@ -1032,7 +1038,8 @@
       }
     },
     "adx_smartdigimkt": {
-      "name": "AdsEye ADX / Smartdigimkt",
+      "name": "TopOn ADX / Smartdigimkt",
+      "description": "TopOn ADX Adapter 会传递引入 SmartdigimktSDK，与 AdsEyeADXSDK 无关",
       "sdk_packages": [
 
       ],
@@ -1052,7 +1059,8 @@
       }
     },
     "tradplus_cross": {
-      "name": "TradPlus Cross",
+      "name": "TradPlus Cross Adapter",
+      "description": "Podfile 显式选择的可选 Adapter，不是 TradPlus Core 自动依赖",
       "sdk_packages": [
 
       ],
@@ -1234,5 +1242,5 @@
       "description": "AdsGlobalPackage 默认不引入 TikTokBusinessSDK。媒体已有 TikTokBusinessSDK 时不要选择 ads_global_tiktok group。"
     }
   ],
-  "catalog_digest": "6f85c5a7c3d790263031842d058966d3c14345465d00d4fa7f624639a8b8c1e2"
+  "catalog_digest": "1ea9d713b9f8f3a954b4a8bfc4086f4d86ab7bf1a220eea077096e8ca10e8f17"
 }

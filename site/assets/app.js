@@ -262,6 +262,14 @@
 
       const tags = document.createElement('span');
       tags.className = 'network-tags';
+      if (network.description) {
+        const description = document.createElement('span');
+        description.className = 'network-description';
+        description.textContent = network.description;
+        content.append(heading, description);
+      } else {
+        content.appendChild(heading);
+      }
       [...state.mediations].forEach((mediationId) => {
         const tag = document.createElement('span');
         tag.className = 'network-tag';
@@ -269,7 +277,7 @@
         tag.textContent = `${state.catalog.mediations[mediationId].name}${supported ? '' : ' · 无 Adapter'}`;
         tags.appendChild(tag);
       });
-      content.append(heading, tags);
+      content.appendChild(tags);
       row.append(input, content);
       fragment.appendChild(row);
     });

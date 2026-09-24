@@ -163,6 +163,7 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
 .network-content { min-width: 0; flex: 1; }
 .network-name { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 13px; font-weight: 600; }
 .adapter-count { color: var(--muted); font-size: 10px; font-weight: 500; white-space: nowrap; }
+.network-description { display: block; margin-top: 3px; color: var(--muted); font-size: 10px; line-height: 1.4; }
 .network-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-top: 5px; }
 .network-tag { padding: 2px 5px; border-radius: 4px; background: #edf1f5; color: #566170; font-size: 9px; }
 .network-empty { padding: 18px 4px; color: var(--muted); text-align: center; }

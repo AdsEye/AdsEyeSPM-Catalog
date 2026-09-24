@@ -362,10 +362,12 @@ transitive_packages:
     url: https://github.com/AdsEye/AdsEyeSPM-SmartdigimktSDK.git
     version: "6.5.65"
     origin: mirror
+    required_by: [TPNMediationAdxSmartdigimktAdapter]
   - id: TPExchange
     url: https://github.com/AdsEye/AdsEyeSPM-TPExchange.git
     version: "13.8.60"
     origin: mirror
+    required_by: [TradPlusAdSDK]
   - id: OMSDK_Appodeal
     url: https://github.com/AdsEye/AdsEyeSPM-OMSDK_Appodeal.git
     version: "1.6.3"
@@ -581,7 +583,8 @@ networks:
       tradplus: [TradPlusAppLovinAdapter]
       admob: [GoogleMobileAdsMediationAppLovin]
   adx_smartdigimkt:
-    name: AdsEye ADX / Smartdigimkt
+    name: TopOn ADX / Smartdigimkt
+    description: TopOn ADX Adapter 会传递引入 SmartdigimktSDK，与 AdsEyeADXSDK 无关
     sdk_packages: []
     adapters:
       applovin: []
@@ -589,7 +592,8 @@ networks:
       tradplus: []
       admob: []
   tradplus_cross:
-    name: TradPlus Cross
+    name: TradPlus Cross Adapter
+    description: Podfile 显式选择的可选 Adapter，不是 TradPlus Core 自动依赖
     sdk_packages: []
     adapters:
       applovin: []
