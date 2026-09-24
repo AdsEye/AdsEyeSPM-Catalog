@@ -1,0 +1,1238 @@
+{
+  "schema_version": 1,
+  "sdk": {
+    "platform": "ios",
+    "version": "1.4.21",
+    "minimum_ios": "13.0",
+    "catalog_tag": "ios-1.4.21",
+    "released_on": "2026-09-24"
+  },
+  "sources": {
+    "podfile": "adseye_demo/Podfile",
+    "podfile_sha256": "0a5c11a09290be6a1eaf2387391a6545af319e950685a3912de0c64806612914",
+    "podfile_lock": "adseye_demo/Podfile.lock",
+    "podfile_lock_sha256": "5e5b7bdd7ad64cf40feea00ea6135d3708e652939fa0775a3def3d8a8708f246"
+  },
+  "packages": [
+    {
+      "id": "AdsEyeAdSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSDK.git",
+      "version": "1.4.21",
+      "products": [
+        "AdsEyeAdSDK"
+      ],
+      "origin": "adseye"
+    },
+    {
+      "id": "AdsEyeADXSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSDK-ADX.git",
+      "version": "1.4.21",
+      "products": [
+        "AdsEyeADXSDK"
+      ],
+      "origin": "adseye"
+    },
+    {
+      "id": "AdsEyeTradPlus",
+      "url": "https://github.com/AdsEye/AdsEyeSDK-TradPlus.git",
+      "version": "1.4.21",
+      "products": [
+        "AdsEyeTradPlus"
+      ],
+      "origin": "adseye"
+    },
+    {
+      "id": "AdsEyeTopOn",
+      "url": "https://github.com/AdsEye/AdsEyeSDK-TopOn.git",
+      "version": "1.4.21",
+      "products": [
+        "AdsEyeTopOn"
+      ],
+      "origin": "adseye"
+    },
+    {
+      "id": "AdsEyeAppLovin",
+      "url": "https://github.com/AdsEye/AdsEyeSDK-AppLovin.git",
+      "version": "1.4.21",
+      "products": [
+        "AdsEyeAppLovin"
+      ],
+      "origin": "adseye"
+    },
+    {
+      "id": "AdsEyeAdMob",
+      "url": "https://github.com/AdsEye/AdsEyeSDK-AdMob.git",
+      "version": "1.4.21",
+      "products": [
+        "AdsEyeAdMob"
+      ],
+      "origin": "adseye"
+    },
+    {
+      "id": "GoogleMobileAds",
+      "url": "https://github.com/googleads/swift-package-manager-google-mobile-ads.git",
+      "version": "13.3.0",
+      "products": [
+        "GoogleMobileAds"
+      ],
+      "origin": "official"
+    },
+    {
+      "id": "GoogleUserMessagingPlatform",
+      "url": "https://github.com/googleads/swift-package-manager-google-user-messaging-platform.git",
+      "version": "3.1.0",
+      "products": [
+        "GoogleUserMessagingPlatform"
+      ],
+      "origin": "official"
+    },
+    {
+      "id": "FBAudienceNetwork",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-FBAudienceNetwork.git",
+      "version": "6.21.1",
+      "products": [
+        "FBAudienceNetwork"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "UnityAds",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-UnityAds.git",
+      "version": "4.17.0",
+      "products": [
+        "UnityAds"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "VungleAdsSDK",
+      "url": "https://github.com/Vungle/VungleAdsSDK-SwiftPackageManager.git",
+      "version": "7.7.4",
+      "products": [
+        "VungleAdsSDK"
+      ],
+      "origin": "official"
+    },
+    {
+      "id": "InMobiSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-InMobiSDK.git",
+      "version": "11.1.1",
+      "products": [
+        "InMobiSDK"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "MintegralAdSDK",
+      "url": "https://github.com/Mintegral-official/MintegralAdSDK-Swift-Package.git",
+      "version": "8.0.8",
+      "products": [
+        "MintegralAdSDK"
+      ],
+      "origin": "official"
+    },
+    {
+      "id": "AdsGlobalPackage",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-Ads-Global.git",
+      "version": "8.1.0-pod.6",
+      "products": [
+        "AdsGlobalPackage"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AdsGlobalTikTokBusinessSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-Ads-Global-TikTokBusinessSDK.git",
+      "version": "8.1.0-pod.6",
+      "products": [
+        "AdsGlobalTikTokBusinessSDK"
+      ],
+      "origin": "mirror",
+      "optional": true,
+      "conflicts_with": [
+        "external-TikTokBusinessSDK"
+      ]
+    },
+    {
+      "id": "ChartboostSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-ChartboostSDK.git",
+      "version": "9.11.0",
+      "products": [
+        "ChartboostSDK"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "YandexMobileAds",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-YandexMobileAds.git",
+      "version": "8.1.0",
+      "products": [
+        "YandexMobileAds"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "BigoADS",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-BigoADS.git",
+      "version": "5.2.0",
+      "products": [
+        "BigoADS"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "BidMachine",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-BidMachine.git",
+      "version": "3.7.1",
+      "products": [
+        "BidMachine"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinSDK",
+      "url": "https://github.com/AppLovin/AppLovin-MAX-Swift-Package.git",
+      "version": "13.6.0",
+      "products": [
+        "AppLovinSDK"
+      ],
+      "origin": "official"
+    },
+    {
+      "id": "TPNiOS",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNiOS.git",
+      "version": "6.5.74",
+      "products": [
+        "TPNiOS"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationGoogleAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationGoogleAdapter.git",
+      "version": "13.3.0-pod.0",
+      "products": [
+        "AppLovinMediationGoogleAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationFacebookAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationFacebookAdapter.git",
+      "version": "6.21.1-pod.0",
+      "products": [
+        "AppLovinMediationFacebookAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationBigoAdsAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationBigoAdsAdapter.git",
+      "version": "5.2.0-pod.0",
+      "products": [
+        "AppLovinMediationBigoAdsAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationByteDanceAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationByteDanceAdapter.git",
+      "version": "8.1.0-pod.6.0",
+      "products": [
+        "AppLovinMediationByteDanceAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationChartboostAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationChartboostAdapter.git",
+      "version": "9.11.0-pod.0",
+      "products": [
+        "AppLovinMediationChartboostAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationInMobiAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationInMobiAdapter.git",
+      "version": "11.1.1-pod.0",
+      "products": [
+        "AppLovinMediationInMobiAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationMintegralAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationMintegralAdapter.git",
+      "version": "8.0.8-pod.0.0",
+      "products": [
+        "AppLovinMediationMintegralAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationUnityAdsAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationUnityAdsAdapter.git",
+      "version": "4.17.0-pod.0",
+      "products": [
+        "AppLovinMediationUnityAdsAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationYandexAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationYandexAdapter.git",
+      "version": "8.1.0-pod.1",
+      "products": [
+        "AppLovinMediationYandexAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationVungleAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationVungleAdapter.git",
+      "version": "7.7.4-pod.0",
+      "products": [
+        "AppLovinMediationVungleAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationBidMachineAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationBidMachineAdapter.git",
+      "version": "3.7.1-pod.0.0",
+      "products": [
+        "AppLovinMediationBidMachineAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AppLovinMediationGoogleAdManagerAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AppLovinMediationGoogleAdManagerAdapter.git",
+      "version": "13.3.0-pod.0",
+      "products": [
+        "AppLovinMediationGoogleAdManagerAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationAdmobAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationAdmobAdapter.git",
+      "version": "13.3.0-pod.2.0",
+      "products": [
+        "TPNMediationAdmobAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationAdxSmartdigimktAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationAdxSmartdigimktAdapter.git",
+      "version": "6.5.65-pod.0",
+      "products": [
+        "TPNMediationAdxSmartdigimktAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationVungleAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationVungleAdapter.git",
+      "version": "7.7.4-pod.2.1",
+      "products": [
+        "TPNMediationVungleAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationUnityAdsAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationUnityAdsAdapter.git",
+      "version": "4.17.0-pod.0",
+      "products": [
+        "TPNMediationUnityAdsAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationBigoAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationBigoAdapter.git",
+      "version": "5.2.0-pod.2.0",
+      "products": [
+        "TPNMediationBigoAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationPangleAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationPangleAdapter.git",
+      "version": "8.1.0-pod.6.2.0",
+      "products": [
+        "TPNMediationPangleAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationFacebookAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationFacebookAdapter.git",
+      "version": "6.21.1-pod.0",
+      "products": [
+        "TPNMediationFacebookAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationChartboostAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationChartboostAdapter.git",
+      "version": "9.11.0-pod.2.0",
+      "products": [
+        "TPNMediationChartboostAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationInmobiAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationInmobiAdapter.git",
+      "version": "11.1.1-pod.0",
+      "products": [
+        "TPNMediationInmobiAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationApplovinAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationApplovinAdapter.git",
+      "version": "13.6.0-pod.2.1",
+      "products": [
+        "TPNMediationApplovinAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationMintegralAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationMintegralAdapter.git",
+      "version": "8.0.8-pod.0",
+      "products": [
+        "TPNMediationMintegralAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TPNMediationBidMachineAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPNMediationBidMachineAdapter.git",
+      "version": "3.7.1-pod.2.1",
+      "products": [
+        "TPNMediationBidMachineAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "AdsEyeTPNMediationYandexAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-AdsEyeTPNMediationYandexAdapter.git",
+      "version": "8.0.0-pod.2.0",
+      "products": [
+        "AdsEyeTPNMediationYandexAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusAdSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusAdSDK.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusAdSDK"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusAdMobAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusAdMobAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusAdMobAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusFacebookAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusFacebookAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusFacebookAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusUnityAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusUnityAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusUnityAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusAppLovinAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusAppLovinAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusAppLovinAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusVungleAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusVungleAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusVungleAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusInMobiAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusInMobiAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusInMobiAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusMintegralAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusMintegralAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusMintegralAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusPangleAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusPangleAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusPangleAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusTPCrossAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusTPCrossAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusTPCrossAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusYandexAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusYandexAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusYandexAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "TradPlusBigoAdapter",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TradPlusBigoAdapter.git",
+      "version": "15.10.0",
+      "products": [
+        "TradPlusBigoAdapter"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationAppLovin",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationAppLovin.git",
+      "version": "13.6.0-pod.0",
+      "products": [
+        "GoogleMobileAdsMediationAppLovin"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationMintegral",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationMintegral.git",
+      "version": "8.0.8-pod.0",
+      "products": [
+        "GoogleMobileAdsMediationMintegral"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationUnity",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationUnity.git",
+      "version": "4.17.0-pod.0",
+      "products": [
+        "GoogleMobileAdsMediationUnity"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationVungle",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationVungle.git",
+      "version": "7.7.4-pod.0",
+      "products": [
+        "GoogleMobileAdsMediationVungle"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationInMobi",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationInMobi.git",
+      "version": "11.1.1-pod.1",
+      "products": [
+        "GoogleMobileAdsMediationInMobi"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationBidMachine",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationBidMachine.git",
+      "version": "3.7.1-pod.0.1",
+      "products": [
+        "GoogleMobileAdsMediationBidMachine"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationFacebook",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationFacebook.git",
+      "version": "6.21.1-pod.0",
+      "products": [
+        "GoogleMobileAdsMediationFacebook"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationPangle",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationPangle.git",
+      "version": "8.1.0-pod.6.0",
+      "products": [
+        "GoogleMobileAdsMediationPangle"
+      ],
+      "origin": "mirror"
+    },
+    {
+      "id": "GoogleMobileAdsMediationBigo",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-GoogleMobileAdsMediationBigo.git",
+      "version": "5.2.0-pod.0",
+      "products": [
+        "GoogleMobileAdsMediationBigo"
+      ],
+      "origin": "mirror"
+    }
+  ],
+  "transitive_packages": [
+    {
+      "id": "SmartdigimktSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-SmartdigimktSDK.git",
+      "version": "6.5.65",
+      "origin": "mirror"
+    },
+    {
+      "id": "TPExchange",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-TPExchange.git",
+      "version": "13.8.60",
+      "origin": "mirror"
+    },
+    {
+      "id": "OMSDK_Appodeal",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-OMSDK_Appodeal.git",
+      "version": "1.6.3",
+      "origin": "mirror"
+    },
+    {
+      "id": "ChartboostCoreSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-ChartboostCoreSDK.git",
+      "version": "1.1.0",
+      "origin": "mirror"
+    },
+    {
+      "id": "ChartboostMediationSDK",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-ChartboostMediationSDK.git",
+      "version": "5.4.0",
+      "origin": "mirror"
+    },
+    {
+      "id": "ChartboostMediationAdapterChartboost",
+      "url": "https://github.com/AdsEye/AdsEyeSPM-ChartboostMediationAdapterChartboost.git",
+      "version": "5.9.11-pod.0.0",
+      "origin": "mirror"
+    },
+    {
+      "id": "AppMetrica",
+      "url": "https://github.com/appmetrica/appmetrica-sdk-ios.git",
+      "version": "6.3.0",
+      "origin": "official"
+    },
+    {
+      "id": "KSCrash",
+      "url": "https://github.com/kstenerud/KSCrash.git",
+      "version": "2.5.1",
+      "origin": "official"
+    }
+  ],
+  "groups": {
+    "core": [
+      "AdsEyeAdSDK"
+    ],
+    "adx": [
+      "AdsEyeADXSDK"
+    ],
+    "network": [
+      "GoogleMobileAds",
+      "FBAudienceNetwork",
+      "UnityAds",
+      "VungleAdsSDK",
+      "InMobiSDK",
+      "MintegralAdSDK",
+      "AdsGlobalPackage",
+      "ChartboostSDK",
+      "YandexMobileAds",
+      "BigoADS",
+      "BidMachine",
+      "AppLovinSDK"
+    ],
+    "support": [
+      "GoogleUserMessagingPlatform"
+    ],
+    "ads_global_tiktok": [
+      "AdsGlobalTikTokBusinessSDK"
+    ],
+    "applovin": [
+      "AdsEyeAppLovin",
+      "AppLovinMediationGoogleAdapter",
+      "AppLovinMediationFacebookAdapter",
+      "AppLovinMediationBigoAdsAdapter",
+      "AppLovinMediationByteDanceAdapter",
+      "AppLovinMediationChartboostAdapter",
+      "AppLovinMediationInMobiAdapter",
+      "AppLovinMediationMintegralAdapter",
+      "AppLovinMediationUnityAdsAdapter",
+      "AppLovinMediationYandexAdapter",
+      "AppLovinMediationVungleAdapter",
+      "AppLovinMediationBidMachineAdapter",
+      "AppLovinMediationGoogleAdManagerAdapter"
+    ],
+    "topon": [
+      "AdsEyeTopOn",
+      "TPNiOS",
+      "TPNMediationAdmobAdapter",
+      "TPNMediationAdxSmartdigimktAdapter",
+      "TPNMediationVungleAdapter",
+      "TPNMediationUnityAdsAdapter",
+      "TPNMediationBigoAdapter",
+      "TPNMediationPangleAdapter",
+      "TPNMediationFacebookAdapter",
+      "TPNMediationChartboostAdapter",
+      "TPNMediationInmobiAdapter",
+      "TPNMediationApplovinAdapter",
+      "TPNMediationMintegralAdapter",
+      "TPNMediationBidMachineAdapter",
+      "AdsEyeTPNMediationYandexAdapter"
+    ],
+    "tradplus": [
+      "AdsEyeTradPlus",
+      "TradPlusAdSDK",
+      "TradPlusAdMobAdapter",
+      "TradPlusFacebookAdapter",
+      "TradPlusUnityAdapter",
+      "TradPlusAppLovinAdapter",
+      "TradPlusVungleAdapter",
+      "TradPlusInMobiAdapter",
+      "TradPlusMintegralAdapter",
+      "TradPlusPangleAdapter",
+      "TradPlusTPCrossAdapter",
+      "TradPlusYandexAdapter",
+      "TradPlusBigoAdapter"
+    ],
+    "admob": [
+      "AdsEyeAdMob",
+      "GoogleMobileAdsMediationAppLovin",
+      "GoogleMobileAdsMediationMintegral",
+      "GoogleMobileAdsMediationUnity",
+      "GoogleMobileAdsMediationVungle",
+      "GoogleMobileAdsMediationInMobi",
+      "GoogleMobileAdsMediationBidMachine",
+      "GoogleMobileAdsMediationFacebook",
+      "GoogleMobileAdsMediationPangle",
+      "GoogleMobileAdsMediationBigo"
+    ]
+  },
+  "mediations": {
+    "applovin": {
+      "name": "AppLovin MAX",
+      "packages": [
+        "AdsEyeAppLovin",
+        "AppLovinSDK"
+      ]
+    },
+    "topon": {
+      "name": "TopOn",
+      "packages": [
+        "AdsEyeTopOn",
+        "TPNiOS"
+      ]
+    },
+    "tradplus": {
+      "name": "TradPlus",
+      "packages": [
+        "AdsEyeTradPlus",
+        "TradPlusAdSDK"
+      ]
+    },
+    "admob": {
+      "name": "AdMob 聚合",
+      "packages": [
+        "AdsEyeAdMob",
+        "GoogleMobileAds"
+      ]
+    }
+  },
+  "networks": {
+    "admob": {
+      "name": "Google AdMob / GAM",
+      "sdk_packages": [
+        "GoogleMobileAds"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationGoogleAdapter",
+          "AppLovinMediationGoogleAdManagerAdapter"
+        ],
+        "topon": [
+          "TPNMediationAdmobAdapter"
+        ],
+        "tradplus": [
+          "TradPlusAdMobAdapter"
+        ],
+        "admob": [
+
+        ]
+      }
+    },
+    "meta": {
+      "name": "Meta Audience Network",
+      "sdk_packages": [
+        "FBAudienceNetwork"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationFacebookAdapter"
+        ],
+        "topon": [
+          "TPNMediationFacebookAdapter"
+        ],
+        "tradplus": [
+          "TradPlusFacebookAdapter"
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationFacebook"
+        ]
+      }
+    },
+    "unity": {
+      "name": "Unity Ads",
+      "sdk_packages": [
+        "UnityAds"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationUnityAdsAdapter"
+        ],
+        "topon": [
+          "TPNMediationUnityAdsAdapter"
+        ],
+        "tradplus": [
+          "TradPlusUnityAdapter"
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationUnity"
+        ]
+      }
+    },
+    "vungle": {
+      "name": "Liftoff Monetize / Vungle",
+      "sdk_packages": [
+        "VungleAdsSDK"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationVungleAdapter"
+        ],
+        "topon": [
+          "TPNMediationVungleAdapter"
+        ],
+        "tradplus": [
+          "TradPlusVungleAdapter"
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationVungle"
+        ]
+      }
+    },
+    "inmobi": {
+      "name": "InMobi",
+      "sdk_packages": [
+        "InMobiSDK"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationInMobiAdapter"
+        ],
+        "topon": [
+          "TPNMediationInmobiAdapter"
+        ],
+        "tradplus": [
+          "TradPlusInMobiAdapter"
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationInMobi"
+        ]
+      }
+    },
+    "mintegral": {
+      "name": "Mintegral",
+      "sdk_packages": [
+        "MintegralAdSDK"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationMintegralAdapter"
+        ],
+        "topon": [
+          "TPNMediationMintegralAdapter"
+        ],
+        "tradplus": [
+          "TradPlusMintegralAdapter"
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationMintegral"
+        ]
+      }
+    },
+    "pangle": {
+      "name": "Pangle",
+      "sdk_packages": [
+        "AdsGlobalPackage"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationByteDanceAdapter"
+        ],
+        "topon": [
+          "TPNMediationPangleAdapter"
+        ],
+        "tradplus": [
+          "TradPlusPangleAdapter"
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationPangle"
+        ]
+      }
+    },
+    "chartboost": {
+      "name": "Chartboost",
+      "sdk_packages": [
+        "ChartboostSDK"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationChartboostAdapter"
+        ],
+        "topon": [
+          "TPNMediationChartboostAdapter"
+        ],
+        "tradplus": [
+
+        ],
+        "admob": [
+
+        ]
+      }
+    },
+    "yandex": {
+      "name": "Yandex Mobile Ads",
+      "sdk_packages": [
+        "YandexMobileAds"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationYandexAdapter"
+        ],
+        "topon": [
+          "AdsEyeTPNMediationYandexAdapter"
+        ],
+        "tradplus": [
+          "TradPlusYandexAdapter"
+        ],
+        "admob": [
+
+        ]
+      }
+    },
+    "bigo": {
+      "name": "Bigo Ads",
+      "sdk_packages": [
+        "BigoADS"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationBigoAdsAdapter"
+        ],
+        "topon": [
+          "TPNMediationBigoAdapter"
+        ],
+        "tradplus": [
+          "TradPlusBigoAdapter"
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationBigo"
+        ]
+      }
+    },
+    "bidmachine": {
+      "name": "BidMachine",
+      "sdk_packages": [
+        "BidMachine"
+      ],
+      "adapters": {
+        "applovin": [
+          "AppLovinMediationBidMachineAdapter"
+        ],
+        "topon": [
+          "TPNMediationBidMachineAdapter"
+        ],
+        "tradplus": [
+
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationBidMachine"
+        ]
+      }
+    },
+    "applovin": {
+      "name": "AppLovin Network",
+      "sdk_packages": [
+        "AppLovinSDK"
+      ],
+      "adapters": {
+        "applovin": [
+
+        ],
+        "topon": [
+          "TPNMediationApplovinAdapter"
+        ],
+        "tradplus": [
+          "TradPlusAppLovinAdapter"
+        ],
+        "admob": [
+          "GoogleMobileAdsMediationAppLovin"
+        ]
+      }
+    },
+    "adx_smartdigimkt": {
+      "name": "AdsEye ADX / Smartdigimkt",
+      "sdk_packages": [
+
+      ],
+      "adapters": {
+        "applovin": [
+
+        ],
+        "topon": [
+          "TPNMediationAdxSmartdigimktAdapter"
+        ],
+        "tradplus": [
+
+        ],
+        "admob": [
+
+        ]
+      }
+    },
+    "tradplus_cross": {
+      "name": "TradPlus Cross",
+      "sdk_packages": [
+
+      ],
+      "adapters": {
+        "applovin": [
+
+        ],
+        "topon": [
+
+        ],
+        "tradplus": [
+          "TradPlusTPCrossAdapter"
+        ],
+        "admob": [
+
+        ]
+      }
+    }
+  },
+  "profiles": {
+    "core": {
+      "description": "AdsEye Core",
+      "groups": [
+        "core"
+      ]
+    },
+    "core_adx": {
+      "description": "AdsEye Core + ADX",
+      "groups": [
+        "core",
+        "adx"
+      ]
+    },
+    "applovin": {
+      "description": "AdsEye Core + 公共网络 + AppLovin MAX",
+      "groups": [
+        "core",
+        "network",
+        "applovin"
+      ]
+    },
+    "topon": {
+      "description": "AdsEye Core + 公共网络 + TopOn",
+      "groups": [
+        "core",
+        "network",
+        "topon"
+      ]
+    },
+    "tradplus": {
+      "description": "AdsEye Core + 公共网络 + TradPlus",
+      "groups": [
+        "core",
+        "network",
+        "tradplus"
+      ]
+    },
+    "admob": {
+      "description": "AdsEye Core + 公共网络 + AdMob 聚合",
+      "groups": [
+        "core",
+        "network",
+        "admob"
+      ]
+    },
+    "full": {
+      "description": "内部全量验证组合，不作为媒体默认配置",
+      "groups": [
+        "core",
+        "adx",
+        "network",
+        "support",
+        "applovin",
+        "topon",
+        "tradplus",
+        "admob"
+      ]
+    }
+  },
+  "resources": [
+    {
+      "bundle": "AdsEyeAdBundle.bundle",
+      "source_package": "AdsEyeAdSDK",
+      "source_path": "RootResources/AdsEyeAdBundle.bundle",
+      "groups": [
+        "core"
+      ],
+      "trigger_packages": [
+        "AdsEyeAdSDK"
+      ],
+      "copy_to_app_root": true
+    },
+    {
+      "bundle": "AdsEyeADXAdBundle.bundle",
+      "source_package": "AdsEyeADXSDK",
+      "source_path": "RootResources/AdsEyeADXAdBundle.bundle",
+      "groups": [
+        "adx"
+      ],
+      "trigger_packages": [
+        "AdsEyeADXSDK"
+      ],
+      "copy_to_app_root": true
+    },
+    {
+      "bundle": "PAGAdSDK.bundle",
+      "source_package": "AdsGlobalPackage",
+      "source_path": "RootResources/PAGAdSDK.bundle",
+      "groups": [
+        "network"
+      ],
+      "trigger_packages": [
+        "AdsGlobalPackage"
+      ],
+      "copy_to_app_root": true
+    },
+    {
+      "bundle": "SmartdigimktSDK.bundle",
+      "source_package": "SmartdigimktSDK",
+      "source_path": "RootResources/SmartdigimktSDK.bundle",
+      "groups": [
+        "topon"
+      ],
+      "trigger_packages": [
+        "TPNMediationAdxSmartdigimktAdapter"
+      ],
+      "copy_to_app_root": true
+    },
+    {
+      "bundle": "TradPlusAds.bundle",
+      "source_package": "TradPlusAdSDK",
+      "source_path": "RootResources/TradPlusAds.bundle",
+      "groups": [
+        "tradplus"
+      ],
+      "trigger_packages": [
+        "TradPlusAdSDK"
+      ],
+      "copy_to_app_root": true
+    },
+    {
+      "bundle": "TradPlusADX.bundle",
+      "source_package": "TPExchange",
+      "source_path": "RootResources/TradPlusADX.bundle",
+      "groups": [
+        "tradplus"
+      ],
+      "trigger_packages": [
+        "TradPlusAdSDK",
+        "TradPlusTPCrossAdapter"
+      ],
+      "copy_to_app_root": true
+    }
+  ],
+  "known_issues": [
+    {
+      "id": "google-mobile-ads-beta-umbrella",
+      "title": "GoogleMobileAds 13.3.0 Beta umbrella 警告",
+      "groups": [
+        "network",
+        "admob"
+      ],
+      "trigger_packages": [
+        "GoogleMobileAds"
+      ],
+      "description": "Xcode 26 会对 Google 官方 XCFramework 中未加入稳定 umbrella/modulemap 的 9 个 _Beta.h 报 incomplete umbrella；构建可成功。优先等待供应商修复，必要时仅在宿主 target 使用 -Wno-incomplete-umbrella，不修改供应商二进制。"
+    },
+    {
+      "id": "ads-global-tiktok-boundary",
+      "title": "TikTokBusinessSDK 冲突边界",
+      "groups": [
+        "network",
+        "ads_global_tiktok"
+      ],
+      "trigger_packages": [
+        "AdsGlobalPackage",
+        "AdsGlobalTikTokBusinessSDK"
+      ],
+      "description": "AdsGlobalPackage 默认不引入 TikTokBusinessSDK。媒体已有 TikTokBusinessSDK 时不要选择 ads_global_tiktok group。"
+    }
+  ],
+  "catalog_digest": "6f85c5a7c3d790263031842d058966d3c14345465d00d4fa7f624639a8b8c1e2"
+}

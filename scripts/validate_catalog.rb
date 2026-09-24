@@ -90,12 +90,30 @@ catalog_files.each do |path|
     fail_with("profile #{name} 引用了不存在的 group：#{missing.join(', ')}") unless missing.empty?
   end
 
+  mediations = catalog.fetch('mediations')
+  mediations.each do |name, mediation|
+    missing = Array(mediation.fetch('packages')).reject { |id| ids.include?(id) }
+    fail_with("mediation #{name} 引用了不存在的 Package：#{missing.join(', ')}") unless missing.empty?
+  end
+
+  catalog.fetch('networks').each do |name, network|
+    referenced = Array(network.fetch('sdk_packages'))
+    network.fetch('adapters').each do |mediation, adapter_ids|
+      fail_with("network #{name} 引用了不存在的 mediation：#{mediation}") unless mediations.key?(mediation)
+      referenced.concat(Array(adapter_ids))
+    end
+    missing = referenced.reject { |id| ids.include?(id) }
+    fail_with("network #{name} 引用了不存在的 Package：#{missing.join(', ')}") unless missing.empty?
+  end
+
   catalog.fetch('resources').each do |resource|
     source_package = resource.fetch('source_package')
     all_ids = ids + transitive_ids
     fail_with("资源 #{resource.fetch('bundle')} 来源 Package 不存在：#{source_package}") unless all_ids.include?(source_package)
     missing_groups = Array(resource.fetch('groups')).reject { |group| groups.key?(group) }
     fail_with("资源 #{resource.fetch('bundle')} group 不存在：#{missing_groups.join(', ')}") unless missing_groups.empty?
+    missing_triggers = Array(resource.fetch('trigger_packages')).reject { |id| all_ids.include?(id) }
+    fail_with("资源 #{resource.fetch('bundle')} trigger Package 不存在：#{missing_triggers.join(', ')}") unless missing_triggers.empty?
   end
 
   puts "通过：#{version}，直接 Package #{packages.length}，传递 Package #{transitive_packages.length}，Product #{products.length}"

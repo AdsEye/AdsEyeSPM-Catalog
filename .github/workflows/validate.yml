@@ -14,6 +14,10 @@ jobs:
         with:
           ruby-version: "3.3"
       - run: ruby scripts/validate_catalog.rb
+      - name: Verify Pages data
+        run: |
+          ruby scripts/build_pages_data.rb
+          git diff --exit-code site/data
       - name: Verify generated full guide
         run: |
           VERSION=$(ruby -ryaml -e 'puts YAML.load_file("latest.yaml").fetch("sdk_version")')

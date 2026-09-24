@@ -2,6 +2,8 @@
 
 AdsEye iOS SDK 的版本化 Swift Package 接入目录。这个仓库只保存 **Package URL、精确版本、Product、组合关系和根目录资源规则**，不保存 SDK 二进制，也不作为聚合 Package 被媒体工程依赖。
 
+在线选择器：[AdsEye SPM 接入清单](https://adseye.github.io/AdsEyeSPM-Catalog/)
+
 ## 为什么存在
 
 - 每个 AdsEye SDK 版本对应一份不可变的 SPM 依赖快照，包括媒体直接 Product 和最终解析出的传递仓库。
@@ -18,6 +20,7 @@ generated/<sdk-version>/              # 由脚本生成的媒体接入文档
 templates/                            # 媒体文档模板
 schema/                               # 清单结构定义
 scripts/                              # 校验和生成脚本
+site/                                 # GitHub Pages 版本/聚合/三方 SDK 选择器
 docs/UPDATE_RULES.md                  # 新版本更新规则
 latest.yaml                           # 当前推荐 SDK 版本指针
 ```

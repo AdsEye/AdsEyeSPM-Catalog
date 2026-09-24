@@ -469,6 +469,134 @@ groups:
     - GoogleMobileAdsMediationPangle
     - GoogleMobileAdsMediationBigo
 
+mediations:
+  applovin:
+    name: AppLovin MAX
+    packages: [AdsEyeAppLovin, AppLovinSDK]
+  topon:
+    name: TopOn
+    packages: [AdsEyeTopOn, TPNiOS]
+  tradplus:
+    name: TradPlus
+    packages: [AdsEyeTradPlus, TradPlusAdSDK]
+  admob:
+    name: AdMob 聚合
+    packages: [AdsEyeAdMob, GoogleMobileAds]
+
+networks:
+  admob:
+    name: Google AdMob / GAM
+    sdk_packages: [GoogleMobileAds]
+    adapters:
+      applovin: [AppLovinMediationGoogleAdapter, AppLovinMediationGoogleAdManagerAdapter]
+      topon: [TPNMediationAdmobAdapter]
+      tradplus: [TradPlusAdMobAdapter]
+      admob: []
+  meta:
+    name: Meta Audience Network
+    sdk_packages: [FBAudienceNetwork]
+    adapters:
+      applovin: [AppLovinMediationFacebookAdapter]
+      topon: [TPNMediationFacebookAdapter]
+      tradplus: [TradPlusFacebookAdapter]
+      admob: [GoogleMobileAdsMediationFacebook]
+  unity:
+    name: Unity Ads
+    sdk_packages: [UnityAds]
+    adapters:
+      applovin: [AppLovinMediationUnityAdsAdapter]
+      topon: [TPNMediationUnityAdsAdapter]
+      tradplus: [TradPlusUnityAdapter]
+      admob: [GoogleMobileAdsMediationUnity]
+  vungle:
+    name: Liftoff Monetize / Vungle
+    sdk_packages: [VungleAdsSDK]
+    adapters:
+      applovin: [AppLovinMediationVungleAdapter]
+      topon: [TPNMediationVungleAdapter]
+      tradplus: [TradPlusVungleAdapter]
+      admob: [GoogleMobileAdsMediationVungle]
+  inmobi:
+    name: InMobi
+    sdk_packages: [InMobiSDK]
+    adapters:
+      applovin: [AppLovinMediationInMobiAdapter]
+      topon: [TPNMediationInmobiAdapter]
+      tradplus: [TradPlusInMobiAdapter]
+      admob: [GoogleMobileAdsMediationInMobi]
+  mintegral:
+    name: Mintegral
+    sdk_packages: [MintegralAdSDK]
+    adapters:
+      applovin: [AppLovinMediationMintegralAdapter]
+      topon: [TPNMediationMintegralAdapter]
+      tradplus: [TradPlusMintegralAdapter]
+      admob: [GoogleMobileAdsMediationMintegral]
+  pangle:
+    name: Pangle
+    sdk_packages: [AdsGlobalPackage]
+    adapters:
+      applovin: [AppLovinMediationByteDanceAdapter]
+      topon: [TPNMediationPangleAdapter]
+      tradplus: [TradPlusPangleAdapter]
+      admob: [GoogleMobileAdsMediationPangle]
+  chartboost:
+    name: Chartboost
+    sdk_packages: [ChartboostSDK]
+    adapters:
+      applovin: [AppLovinMediationChartboostAdapter]
+      topon: [TPNMediationChartboostAdapter]
+      tradplus: []
+      admob: []
+  yandex:
+    name: Yandex Mobile Ads
+    sdk_packages: [YandexMobileAds]
+    adapters:
+      applovin: [AppLovinMediationYandexAdapter]
+      topon: [AdsEyeTPNMediationYandexAdapter]
+      tradplus: [TradPlusYandexAdapter]
+      admob: []
+  bigo:
+    name: Bigo Ads
+    sdk_packages: [BigoADS]
+    adapters:
+      applovin: [AppLovinMediationBigoAdsAdapter]
+      topon: [TPNMediationBigoAdapter]
+      tradplus: [TradPlusBigoAdapter]
+      admob: [GoogleMobileAdsMediationBigo]
+  bidmachine:
+    name: BidMachine
+    sdk_packages: [BidMachine]
+    adapters:
+      applovin: [AppLovinMediationBidMachineAdapter]
+      topon: [TPNMediationBidMachineAdapter]
+      tradplus: []
+      admob: [GoogleMobileAdsMediationBidMachine]
+  applovin:
+    name: AppLovin Network
+    sdk_packages: [AppLovinSDK]
+    adapters:
+      applovin: []
+      topon: [TPNMediationApplovinAdapter]
+      tradplus: [TradPlusAppLovinAdapter]
+      admob: [GoogleMobileAdsMediationAppLovin]
+  adx_smartdigimkt:
+    name: AdsEye ADX / Smartdigimkt
+    sdk_packages: []
+    adapters:
+      applovin: []
+      topon: [TPNMediationAdxSmartdigimktAdapter]
+      tradplus: []
+      admob: []
+  tradplus_cross:
+    name: TradPlus Cross
+    sdk_packages: []
+    adapters:
+      applovin: []
+      topon: []
+      tradplus: [TradPlusTPCrossAdapter]
+      admob: []
+
 profiles:
   core:
     description: AdsEye Core
@@ -497,39 +625,47 @@ resources:
     source_package: AdsEyeAdSDK
     source_path: RootResources/AdsEyeAdBundle.bundle
     groups: [core]
+    trigger_packages: [AdsEyeAdSDK]
     copy_to_app_root: true
   - bundle: AdsEyeADXAdBundle.bundle
     source_package: AdsEyeADXSDK
     source_path: RootResources/AdsEyeADXAdBundle.bundle
     groups: [adx]
+    trigger_packages: [AdsEyeADXSDK]
     copy_to_app_root: true
   - bundle: PAGAdSDK.bundle
     source_package: AdsGlobalPackage
     source_path: RootResources/PAGAdSDK.bundle
     groups: [network]
+    trigger_packages: [AdsGlobalPackage]
     copy_to_app_root: true
   - bundle: SmartdigimktSDK.bundle
     source_package: SmartdigimktSDK
     source_path: RootResources/SmartdigimktSDK.bundle
     groups: [topon]
+    trigger_packages: [TPNMediationAdxSmartdigimktAdapter]
     copy_to_app_root: true
   - bundle: TradPlusAds.bundle
     source_package: TradPlusAdSDK
     source_path: RootResources/TradPlusAds.bundle
     groups: [tradplus]
+    trigger_packages: [TradPlusAdSDK]
     copy_to_app_root: true
   - bundle: TradPlusADX.bundle
     source_package: TPExchange
     source_path: RootResources/TradPlusADX.bundle
     groups: [tradplus]
+    trigger_packages: [TradPlusAdSDK, TradPlusTPCrossAdapter]
     copy_to_app_root: true
 
 known_issues:
   - id: google-mobile-ads-beta-umbrella
     title: GoogleMobileAds 13.3.0 Beta umbrella 警告
     groups: [network, admob]
+    trigger_packages: [GoogleMobileAds]
     description: Xcode 26 会对 Google 官方 XCFramework 中未加入稳定 umbrella/modulemap 的 9 个 _Beta.h 报 incomplete umbrella；构建可成功。优先等待供应商修复，必要时仅在宿主 target 使用 -Wno-incomplete-umbrella，不修改供应商二进制。
   - id: ads-global-tiktok-boundary
     title: TikTokBusinessSDK 冲突边界
     groups: [network, ads_global_tiktok]
+    trigger_packages: [AdsGlobalPackage, AdsGlobalTikTokBusinessSDK]
     description: AdsGlobalPackage 默认不引入 TikTokBusinessSDK。媒体已有 TikTokBusinessSDK 时不要选择 ads_global_tiktok group。

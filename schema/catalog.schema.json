@@ -3,7 +3,7 @@
   "$id": "https://github.com/AdsEye/AdsEyeSPM-Catalog/schema/catalog.schema.json",
   "title": "AdsEye iOS SPM Catalog",
   "type": "object",
-  "required": ["schema_version", "sdk", "sources", "packages", "groups", "profiles", "resources"],
+  "required": ["schema_version", "sdk", "sources", "packages", "groups", "mediations", "networks", "profiles", "resources"],
   "properties": {
     "schema_version": { "const": 1 },
     "sdk": {
@@ -32,6 +32,8 @@
     },
     "transitive_packages": { "type": "array" },
     "groups": { "type": "object" },
+    "mediations": { "type": "object" },
+    "networks": { "type": "object" },
     "profiles": { "type": "object" },
     "resources": { "type": "array" }
   }

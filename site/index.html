@@ -1,0 +1,159 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <meta name="theme-color" content="#171a1f">
+  <title>AdsEye SPM 接入清单</title>
+  <link rel="icon" href="assets/adseye-logo.png" type="image/png">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header class="app-header">
+    <div class="brand-block">
+      <img src="assets/adseye-logo.png" alt="" width="34" height="34">
+      <div>
+        <div class="brand-name">AdsEye SPM Catalog</div>
+        <div class="brand-context">iOS 媒体接入清单</div>
+      </div>
+    </div>
+    <div class="header-controls">
+      <label class="version-control">
+        <span>SDK 版本</span>
+        <select id="version-select" aria-label="SDK 版本"></select>
+      </label>
+      <a class="repo-link" href="https://github.com/AdsEye/AdsEyeSPM-Catalog" target="_blank" rel="noreferrer">GitHub</a>
+    </div>
+  </header>
+
+  <main class="app-shell">
+    <aside class="config-panel" aria-label="接入选项">
+      <section class="control-section">
+        <div class="section-heading">
+          <h2>常用组合</h2>
+          <button id="reset-button" class="text-button" type="button">重置</button>
+        </div>
+        <div id="profile-list" class="profile-list"></div>
+      </section>
+
+      <section class="control-section">
+        <div class="section-heading">
+          <h2>聚合 SDK</h2>
+        </div>
+        <div id="mediation-list" class="option-list"></div>
+      </section>
+
+      <section class="control-section network-section">
+        <div class="section-heading network-heading">
+          <h2>三方 SDK</h2>
+          <div class="inline-actions">
+            <button id="select-all-networks" class="text-button" type="button">全选</button>
+            <button id="clear-networks" class="text-button" type="button">清空</button>
+          </div>
+        </div>
+        <label class="search-control">
+          <span class="sr-only">搜索三方 SDK</span>
+          <input id="network-search" type="search" placeholder="搜索网络" autocomplete="off">
+        </label>
+        <div id="network-list" class="network-list"></div>
+      </section>
+
+      <section class="control-section">
+        <div class="section-heading">
+          <h2>可选能力</h2>
+        </div>
+        <div class="option-list">
+          <label class="option-row">
+            <input id="option-adx" type="checkbox">
+            <span><strong>AdsEye ADX</strong><small>加入 ADX SDK 与资源</small></span>
+          </label>
+          <label class="option-row">
+            <input id="option-ump" type="checkbox">
+            <span><strong>Google UMP</strong><small>媒体使用 UMP 时加入</small></span>
+          </label>
+          <label class="option-row" id="tiktok-option-row">
+            <input id="option-tiktok" type="checkbox">
+            <span><strong>TikTokBusinessSDK</strong><small>已有其他来源时不要选择</small></span>
+          </label>
+        </div>
+      </section>
+      <button id="mobile-result-button" class="mobile-result-button" type="button">查看接入清单</button>
+    </aside>
+
+    <section class="output-panel" aria-label="生成结果">
+      <div class="summary-bar">
+        <div class="summary-stats" aria-live="polite">
+          <div><strong id="package-count">0</strong><span>Packages</span></div>
+          <div><strong id="product-count">0</strong><span>Products</span></div>
+          <div><strong id="resource-count">0</strong><span>Resources</span></div>
+        </div>
+        <div class="command-actions">
+          <button id="copy-button" class="secondary-button" type="button">复制当前内容</button>
+          <button id="download-button" class="primary-button" type="button">下载 Markdown</button>
+        </div>
+      </div>
+
+      <div class="tab-bar" role="tablist" aria-label="接入内容视图">
+        <button class="tab-button is-active" type="button" role="tab" aria-selected="true" data-tab="packages">接入清单</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab="swift">Package.swift</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab="resources">资源与提示</button>
+        <button class="tab-button" type="button" role="tab" aria-selected="false" data-tab="markdown">Markdown</button>
+      </div>
+
+      <div id="panel-packages" class="tab-panel is-active" role="tabpanel">
+        <div class="content-heading">
+          <div>
+            <h1 id="selection-title">AdsEye Core</h1>
+            <p id="selection-meta"></p>
+          </div>
+          <span id="catalog-status" class="status-badge">已校验</span>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Package</th>
+                <th>版本</th>
+                <th>Product</th>
+                <th>来源</th>
+              </tr>
+            </thead>
+            <tbody id="package-table-body"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div id="panel-swift" class="tab-panel" role="tabpanel" hidden>
+        <div class="code-heading">
+          <h2>直接 Product 依赖</h2>
+          <span>普通 Xcode App 请在 target 中直接添加 Product</span>
+        </div>
+        <pre><code id="swift-output"></code></pre>
+      </div>
+
+      <div id="panel-resources" class="tab-panel" role="tabpanel" hidden>
+        <section class="result-section">
+          <h2>App 根目录资源</h2>
+          <div id="resource-list" class="resource-list"></div>
+        </section>
+        <section class="result-section">
+          <h2>已知事项</h2>
+          <div id="issue-list" class="issue-list"></div>
+        </section>
+      </div>
+
+      <div id="panel-markdown" class="tab-panel" role="tabpanel" hidden>
+        <div class="code-heading">
+          <h2>媒体接入文档</h2>
+          <span>内容随当前选择实时生成</span>
+        </div>
+        <pre><code id="markdown-output"></code></pre>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="assets/app.js" defer></script>
+</body>
+</html>
