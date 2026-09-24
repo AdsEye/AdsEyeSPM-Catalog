@@ -16,6 +16,14 @@ def package_identity(url)
   File.basename(url.to_s.sub(%r{/+\z}, ''), '.git').downcase
 end
 
+def repository_base_url(url)
+  url.to_s.sub(/\.git\z/, '').sub(%r{/+\z}, '')
+end
+
+def source_archive_url(package)
+  "#{repository_base_url(package.fetch('url'))}/archive/refs/tags/#{package.fetch('version')}.zip"
+end
+
 options = {
   version: nil,
   profile: nil,
@@ -54,13 +62,21 @@ unknown_groups = selected_groups.reject { |group| groups.key?(group) }
 abort "不存在 group：#{unknown_groups.join(', ')}" unless unknown_groups.empty?
 
 selected_ids = selected_groups.flat_map { |group| groups.fetch(group) }.uniq
-package_by_id = catalog.fetch('packages').to_h { |package| [package.fetch('id'), package] }
+all_package_records = catalog.fetch('packages') + Array(catalog['transitive_packages'])
+package_by_id = all_package_records.to_h { |package| [package.fetch('id'), package] }
 missing_packages = selected_ids.reject { |id| package_by_id.key?(id) }
 abort "group 引用了不存在的 Package：#{missing_packages.join(', ')}" unless missing_packages.empty?
 
 packages = selected_ids.map { |id| package_by_id.fetch(id) }
 resources = catalog.fetch('resources').select do |resource|
   !(Array(resource['groups']) & selected_groups).empty?
+end.map do |resource|
+  source = package_by_id.fetch(resource.fetch('source_package'))
+  resource.merge(
+    'source_version' => source.fetch('version').to_s,
+    'source_url' => source.fetch('url'),
+    'source_archive_url' => source_archive_url(source)
+  )
 end
 known_issues = Array(catalog['known_issues']).select do |issue|
   issue_groups = Array(issue['groups'])

@@ -160,6 +160,8 @@ button, a, input, select { -webkit-tap-highlight-color: transparent; }
 .network-list { max-height: 430px; overflow: auto; border-top: 1px solid var(--line); }
 .network-row { padding: 10px 4px; border-bottom: 1px solid #edf0f3; }
 .network-row:hover { background: #f8fafc; }
+.network-row:has(input:disabled) { cursor: default; }
+.network-row:has(input:disabled) .adapter-count { color: var(--green); font-weight: 700; }
 .network-content { min-width: 0; flex: 1; }
 .network-name { display: flex; align-items: center; justify-content: space-between; gap: 8px; font-size: 13px; font-weight: 600; }
 .adapter-count { color: var(--muted); font-size: 10px; font-weight: 500; white-space: nowrap; }
@@ -256,10 +258,17 @@ pre {
 .result-section + .result-section { margin-top: 26px; padding-top: 22px; border-top: 1px solid var(--line); }
 .result-section h2 { margin-bottom: 12px; }
 .resource-list, .issue-list { display: grid; gap: 8px; }
+.resource-instructions { margin-bottom: 14px; padding: 12px 14px; border-left: 3px solid var(--blue); background: #edf5ff; }
+.resource-instructions strong { display: block; margin-bottom: 7px; color: var(--blue-dark); }
+.resource-instructions ol { margin: 0; padding-left: 19px; color: #425063; font-size: 12px; line-height: 1.65; }
+.resource-instructions code { padding: 1px 4px; border-radius: 3px; background: #dfeafa; font-size: 11px; }
 .resource-row, .issue-row { padding: 12px; border: 1px solid var(--line); border-radius: var(--radius); }
 .resource-row strong, .issue-row strong { display: block; margin-bottom: 4px; }
 .resource-row code { font-size: 11px; color: var(--blue-dark); overflow-wrap: anywhere; }
 .resource-meta, .issue-row p { margin: 4px 0 0; color: var(--muted); font-size: 12px; line-height: 1.55; }
+.resource-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.resource-actions a { color: var(--blue-dark); font-size: 11px; font-weight: 650; text-decoration: none; }
+.resource-actions a:hover { text-decoration: underline; }
 .issue-row { border-left: 3px solid #d99a2b; background: var(--amber-soft); }
 .empty-result { padding: 18px; border: 1px dashed var(--line-strong); border-radius: var(--radius); color: var(--muted); text-align: center; }
 

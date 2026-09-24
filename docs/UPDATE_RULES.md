@@ -45,11 +45,14 @@
 - `topon`、`applovin`、`tradplus`、`admob` 只包含该聚合 Core/Adapter。
 - Profile 通过 group 组合生成，禁止在生成文档里手工增加依赖。
 - 媒体只接入实际使用的聚合和 Adapter，不得把 `full` 作为默认生产配置。
+- 聚合强制依赖的网络或扩展必须写入 `mediations.<id>.required_networks`，页面不得允许媒体取消。
 
 ## 资源规则
 
 - `copy_to_app_root: true` 表示资源必须最终位于 `YourApp.app/<Bundle>.bundle`。
 - 不允许把这类资源放进 SwiftPM 自动生成的 `<Package>_<Target>.bundle`。
+- 媒体从来源 Package 的精确 tag 源码 ZIP 中取得 `RootResources/<Bundle>.bundle`，拖入 Xcode 时勾选 Copy items if needed 和 App target，并加入 Copy Bundle Resources。
+- 同名 bundle 在 Copy Bundle Resources 中只能出现一次，最终产物必须验证位于 `.app` 根目录。
 - 新增或升级二进制时必须审计其 `NSBundle mainBundle`、`pathForResource:` 和资源 bundle 查找方式。
 
 ## 文档交付规则

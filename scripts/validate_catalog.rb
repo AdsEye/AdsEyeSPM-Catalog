@@ -93,12 +93,15 @@ catalog_files.each do |path|
   end
 
   mediations = catalog.fetch('mediations')
+  networks = catalog.fetch('networks')
   mediations.each do |name, mediation|
     missing = Array(mediation.fetch('packages')).reject { |id| ids.include?(id) }
     fail_with("mediation #{name} 引用了不存在的 Package：#{missing.join(', ')}") unless missing.empty?
+    missing_networks = Array(mediation['required_networks']).reject { |id| networks.key?(id) }
+    fail_with("mediation #{name} 引用了不存在的必选 network：#{missing_networks.join(', ')}") unless missing_networks.empty?
   end
 
-  catalog.fetch('networks').each do |name, network|
+  networks.each do |name, network|
     referenced = Array(network.fetch('sdk_packages'))
     network.fetch('adapters').each do |mediation, adapter_ids|
       fail_with("network #{name} 引用了不存在的 mediation：#{mediation}") unless mediations.key?(mediation)

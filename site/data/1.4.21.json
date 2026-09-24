@@ -778,6 +778,9 @@
       "packages": [
         "AdsEyeTopOn",
         "TPNiOS"
+      ],
+      "required_networks": [
+        "adx_smartdigimkt"
       ]
     },
     "tradplus": {
@@ -1242,5 +1245,5 @@
       "description": "AdsGlobalPackage 默认不引入 TikTokBusinessSDK。媒体已有 TikTokBusinessSDK 时不要选择 ads_global_tiktok group。"
     }
   ],
-  "catalog_digest": "1ea9d713b9f8f3a954b4a8bfc4086f4d86ab7bf1a220eea077096e8ca10e8f17"
+  "catalog_digest": "d3a08c95e60f104890ea40801fed73e2a54bb071d269736d69942186de0a6a11"
 }

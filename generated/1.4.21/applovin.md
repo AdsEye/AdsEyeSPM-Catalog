@@ -108,10 +108,18 @@ dependencies: [
 
 ## App 根目录资源
 
-| Bundle | 来源 Package | 仓库路径 | 最终路径 |
-| --- | --- | --- | --- |
-| `AdsEyeAdBundle.bundle` | `AdsEyeAdSDK` | `RootResources/AdsEyeAdBundle.bundle` | `YourApp.app/AdsEyeAdBundle.bundle` |
-| `PAGAdSDK.bundle` | `AdsGlobalPackage` | `RootResources/PAGAdSDK.bundle` | `YourApp.app/PAGAdSDK.bundle` |
+处理步骤：
+
+1. 下载对应 Package 的精确 tag 源码 ZIP。
+2. 解压后从表中的 `RootResources/` 路径取出整个 `.bundle`，拖入 Xcode。
+3. 勾选 **Copy items if needed** 和 App target。
+4. 在 **Build Phases > Copy Bundle Resources** 中确认资源只出现一次。
+5. 构建后确认最终路径为 `YourApp.app/<BundleName>.bundle`。
+
+| Bundle | 来源 Package | 下载 | 解压路径 | 最终路径 |
+| --- | --- | --- | --- | --- |
+| `AdsEyeAdBundle.bundle` | `AdsEyeAdSDK` `1.4.21` | [源码 ZIP](https://github.com/AdsEye/AdsEyeSDK/archive/refs/tags/1.4.21.zip) | `RootResources/AdsEyeAdBundle.bundle` | `YourApp.app/AdsEyeAdBundle.bundle` |
+| `PAGAdSDK.bundle` | `AdsGlobalPackage` `8.1.0-pod.6` | [源码 ZIP](https://github.com/AdsEye/AdsEyeSPM-Ads-Global/archive/refs/tags/8.1.0-pod.6.zip) | `RootResources/PAGAdSDK.bundle` | `YourApp.app/PAGAdSDK.bundle` |
 
 ## 已知事项
 

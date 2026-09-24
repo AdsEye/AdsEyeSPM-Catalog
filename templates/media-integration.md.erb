@@ -41,13 +41,21 @@ dependencies: [
 
 ## App 根目录资源
 
+处理步骤：
+
+1. 下载对应 Package 的精确 tag 源码 ZIP。
+2. 解压后从表中的 `RootResources/` 路径取出整个 `.bundle`，拖入 Xcode。
+3. 勾选 **Copy items if needed** 和 App target。
+4. 在 **Build Phases > Copy Bundle Resources** 中确认资源只出现一次。
+5. 构建后确认最终路径为 `YourApp.app/<BundleName>.bundle`。
+
 <% if resources.empty? -%>
 当前组合没有需要手工复制到 App 根目录的资源。
 <% else -%>
-| Bundle | 来源 Package | 仓库路径 | 最终路径 |
-| --- | --- | --- | --- |
+| Bundle | 来源 Package | 下载 | 解压路径 | 最终路径 |
+| --- | --- | --- | --- | --- |
 <% resources.each do |resource| -%>
-| `<%= resource.fetch('bundle') %>` | `<%= resource.fetch('source_package') %>` | `<%= resource.fetch('source_path') %>` | `YourApp.app/<%= resource.fetch('bundle') %>` |
+| `<%= resource.fetch('bundle') %>` | `<%= resource.fetch('source_package') %>` `<%= resource.fetch('source_version') %>` | [源码 ZIP](<%= resource.fetch('source_archive_url') %>) | `<%= resource.fetch('source_path') %>` | `YourApp.app/<%= resource.fetch('bundle') %>` |
 <% end -%>
 <% end -%>
 

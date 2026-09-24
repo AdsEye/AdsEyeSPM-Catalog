@@ -61,6 +61,7 @@
     elements['select-all-networks'].addEventListener('click', selectAllNetworks);
     elements['clear-networks'].addEventListener('click', () => {
       state.networks.clear();
+      enforceRequiredNetworks();
       markCustom();
       renderAll();
     });
@@ -117,6 +118,7 @@
     state.options.adx = query.get('adx') === '1';
     state.options.ump = query.get('ump') === '1';
     state.options.tiktok = query.get('tiktok') === '1';
+    enforceRequiredNetworks();
   }
 
   function parseSet(value, allowedMap) {
@@ -139,6 +141,22 @@
         if (networkContributes(network)) state.networks.add(id);
       });
     }
+    enforceRequiredNetworks();
+  }
+
+  function requiredNetworkIds() {
+    return new Set([...state.mediations].flatMap((id) => state.catalog.mediations[id].required_networks || []));
+  }
+
+  function enforceRequiredNetworks() {
+    const required = requiredNetworkIds();
+    required.forEach((id) => state.networks.add(id));
+
+    // 没有基础 SDK 且已不服务任何选中聚合的扩展，不应残留在 URL 和依赖计算中。
+    [...state.networks].forEach((id) => {
+      const network = state.catalog.networks[id];
+      if ((network.sdk_packages || []).length === 0 && !networkContributes(network)) state.networks.delete(id);
+    });
   }
 
   function networkContributes(network) {
@@ -213,6 +231,7 @@
       input.checked = state.mediations.has(id);
       input.addEventListener('change', () => {
         input.checked ? state.mediations.add(id) : state.mediations.delete(id);
+        enforceRequiredNetworks();
         markCustom();
         renderAll();
       });
@@ -242,6 +261,8 @@
       const input = document.createElement('input');
       input.type = 'checkbox';
       input.checked = state.networks.has(id);
+      const required = requiredNetworkIds().has(id);
+      input.disabled = required;
       input.addEventListener('change', () => {
         input.checked ? state.networks.add(id) : state.networks.delete(id);
         markCustom();
@@ -257,7 +278,7 @@
       const adapterCount = document.createElement('span');
       adapterCount.className = 'adapter-count';
       const count = selectedAdapterIds(network).length;
-      adapterCount.textContent = `${count} Adapter`;
+      adapterCount.textContent = required ? '必选' : `${count} Adapter`;
       heading.append(name, adapterCount);
 
       const tags = document.createElement('span');
@@ -383,6 +404,7 @@
       return;
     }
     elements['resource-list'].replaceChildren(...resources.map((item) => {
+      const source = packageRecord(item.source_package);
       const row = document.createElement('div');
       row.className = 'resource-row';
       const title = document.createElement('strong');
@@ -391,10 +413,34 @@
       path.textContent = `YourApp.app/${item.bundle}`;
       const meta = document.createElement('p');
       meta.className = 'resource-meta';
-      meta.textContent = `${item.source_package} · ${item.source_path}`;
-      row.append(title, path, meta);
+      meta.textContent = `${item.source_package} ${source.version} · 解压后复制 ${item.source_path}`;
+      const actions = document.createElement('div');
+      actions.className = 'resource-actions';
+      const treeLink = document.createElement('a');
+      treeLink.href = `${repositoryBaseUrl(source.url)}/tree/${encodeURIComponent(source.version)}/${item.source_path}`;
+      treeLink.target = '_blank';
+      treeLink.rel = 'noreferrer';
+      treeLink.textContent = '查看资源目录';
+      const downloadLink = document.createElement('a');
+      downloadLink.href = sourceArchiveUrl(source);
+      downloadLink.textContent = '下载该 tag 源码 ZIP';
+      actions.append(treeLink, downloadLink);
+      row.append(title, path, meta, actions);
       return row;
     }));
+  }
+
+  function packageRecord(id) {
+    const records = [...state.catalog.packages, ...(state.catalog.transitive_packages || [])];
+    return records.find((item) => item.id === id);
+  }
+
+  function repositoryBaseUrl(url) {
+    return url.replace(/\.git$/, '').replace(/\/+$/, '');
+  }
+
+  function sourceArchiveUrl(source) {
+    return `${repositoryBaseUrl(source.url)}/archive/refs/tags/${encodeURIComponent(source.version)}.zip`;
   }
 
   function renderIssues(issues) {
@@ -451,11 +497,30 @@
     selection.packages.forEach((item) => {
       lines.push(`| ${item.id} | ${item.version} | ${item.products.join(', ')} | ${item.url} |`);
     });
-    lines.push('', '## App 根目录资源', '');
+    lines.push(
+      '',
+      '## App 根目录资源',
+      '',
+      '处理步骤：',
+      '',
+      '1. 下载对应 Package 的精确 tag 源码 ZIP。',
+      '2. 解压后从 RootResources 路径取出整个 .bundle，拖入 Xcode。',
+      '3. 勾选 Copy items if needed 和 App target。',
+      '4. 在 Build Phases > Copy Bundle Resources 中确认资源只出现一次。',
+      '5. 构建后确认路径为 YourApp.app/<BundleName>.bundle。',
+      ''
+    );
     if (selection.resources.length === 0) {
       lines.push('无。');
     } else {
-      selection.resources.forEach((item) => lines.push(`- ${item.bundle}：${item.source_package}/${item.source_path}`));
+      selection.resources.forEach((item) => {
+        const source = packageRecord(item.source_package);
+        lines.push(`- ${item.bundle}`);
+        lines.push(`  - 来源：${item.source_package} ${source.version}`);
+        lines.push(`  - 下载：${sourceArchiveUrl(source)}`);
+        lines.push(`  - 解压路径：${item.source_path}`);
+        lines.push(`  - 最终路径：YourApp.app/${item.bundle}`);
+      });
     }
     lines.push('', '## 已知事项', '');
     if (selection.knownIssues.length === 0) {

@@ -478,6 +478,7 @@ mediations:
   topon:
     name: TopOn
     packages: [AdsEyeTopOn, TPNiOS]
+    required_networks: [adx_smartdigimkt]
   tradplus:
     name: TradPlus
     packages: [AdsEyeTradPlus, TradPlusAdSDK]

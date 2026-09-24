@@ -135,6 +135,15 @@
       <div id="panel-resources" class="tab-panel" role="tabpanel" hidden>
         <section class="result-section">
           <h2>App 根目录资源</h2>
+          <div class="resource-instructions">
+            <strong>需要媒体手工加入 App target</strong>
+            <ol>
+              <li>下载对应 Package 的精确 tag 源码 ZIP。</li>
+              <li>解压后找到表中 <code>RootResources/</code> 路径，将整个 <code>.bundle</code> 拖入 Xcode。</li>
+              <li>勾选 <code>Copy items if needed</code> 和 App target，并确认出现在 <code>Build Phases > Copy Bundle Resources</code>。</li>
+              <li>构建后确认最终路径为 <code>YourApp.app/&lt;BundleName&gt;.bundle</code>，不能位于 SwiftPM 自动生成的嵌套 bundle。</li>
+            </ol>
+          </div>
           <div id="resource-list" class="resource-list"></div>
         </section>
         <section class="result-section">
