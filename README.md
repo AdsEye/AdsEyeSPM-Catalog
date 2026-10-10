@@ -28,8 +28,8 @@ latest.yaml                           # 当前推荐 SDK 版本指针
 ## 生成媒体清单
 
 ```bash
-ruby scripts/generate_media_guide.rb --version 1.4.21 --profile full
-ruby scripts/generate_media_guide.rb --version 1.4.21 --groups core,network,topon
+ruby scripts/generate_media_guide.rb --version 1.4.22 --profile full
+ruby scripts/generate_media_guide.rb --version 1.4.22 --groups core,network,topon
 ```
 
 可用 profile 由对应版本的 `catalog.yaml` 定义。生成结果默认写入 `generated/<version>/<profile>.md`。

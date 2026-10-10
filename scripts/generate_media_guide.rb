@@ -32,7 +32,7 @@ options = {
 }
 
 OptionParser.new do |parser|
-  parser.banner = '用法：ruby scripts/generate_media_guide.rb [--version 1.4.21] [--profile full | --groups core,topon]'
+  parser.banner = '用法：ruby scripts/generate_media_guide.rb [--version 1.4.22] [--profile full | --groups core,topon]'
   parser.on('--version VERSION', 'AdsEye SDK 版本，默认读取 latest.yaml') { |value| options[:version] = value }
   parser.on('--profile NAME', '使用 catalog 中定义的媒体组合') { |value| options[:profile] = value }
   parser.on('--groups LIST', '直接指定逗号分隔的 group') { |value| options[:groups] = value.split(',').map(&:strip).reject(&:empty?) }

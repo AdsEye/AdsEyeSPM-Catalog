@@ -1,7 +1,14 @@
 {
   "schema_version": 1,
-  "latest": "1.4.21",
+  "latest": "1.4.22",
   "versions": [
+    {
+      "version": "1.4.22",
+      "released_on": "2026-10-09",
+      "minimum_ios": "13.0",
+      "catalog_tag": "ios-1.4.22",
+      "path": "data/1.4.22.json"
+    },
     {
       "version": "1.4.21",
       "released_on": "2026-09-24",

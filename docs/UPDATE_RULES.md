@@ -17,7 +17,9 @@
 7. 执行本地结构校验和远端 tag 校验。
 8. 重新生成所有 profile 文档并提交。
 9. 更新 `latest.yaml`。
-10. 合并后创建 `ios-<SDK版本>` tag。
+10. 提交并推送 Catalog `main`，等待 Validate Catalog 与 Pages 工作流通过。
+11. 创建并推送不可覆盖的 `ios-<SDK版本>` tag。
+12. 回到 AdsEye 主仓库完成 Demo 依赖解析，确认 `Package.resolved` 与 Catalog 的直接及传递 Package 一致。
 
 ## 修改规则
 
