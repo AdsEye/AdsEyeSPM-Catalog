@@ -634,10 +634,10 @@ resources:
     copy_to_app_root: false
   - bundle: AdsEyeADXAdBundle.bundle
     source_package: AdsEyeADXSDK
-    source_path: RootResources/AdsEyeADXAdBundle.bundle
+    source_path: Sources/AdsEyeADXLinker/Resources/AdsEyeADXAdBundle.bundle
     groups: [adx]
     trigger_packages: [AdsEyeADXSDK]
-    copy_to_app_root: true
+    copy_to_app_root: false
   - bundle: PAGAdSDK.bundle
     source_package: AdsGlobalPackage
     source_path: RootResources/PAGAdSDK.bundle

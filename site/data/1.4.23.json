@@ -1159,14 +1159,14 @@
     {
       "bundle": "AdsEyeADXAdBundle.bundle",
       "source_package": "AdsEyeADXSDK",
-      "source_path": "RootResources/AdsEyeADXAdBundle.bundle",
+      "source_path": "Sources/AdsEyeADXLinker/Resources/AdsEyeADXAdBundle.bundle",
       "groups": [
         "adx"
       ],
       "trigger_packages": [
         "AdsEyeADXSDK"
       ],
-      "copy_to_app_root": true
+      "copy_to_app_root": false
     },
     {
       "bundle": "PAGAdSDK.bundle",
@@ -1245,5 +1245,5 @@
       "description": "AdsGlobalPackage 默认不引入 TikTokBusinessSDK。媒体已有 TikTokBusinessSDK 时不要选择 ads_global_tiktok group。"
     }
   ],
-  "catalog_digest": "da4db11861bf4e18430c62a9f38da974f9ee007f056ae879dcade6af4bb41c3a"
+  "catalog_digest": "5caf110980607a4a4afd28c52a8c04c464f67775a15219cb72921a3c8c71c9f9"
 }

@@ -39,23 +39,13 @@ dependencies: [
 以下资源已由 SwiftPM 自动复制，添加对应 Product 后无需手动拖入：
 
 - `AdsEyeAdBundle.bundle`：由 `AdsEyeAdSDK` 自动交付。
+- `AdsEyeADXAdBundle.bundle`：由 `AdsEyeADXSDK` 自动交付。
 
 从旧接入方式升级时，请移除 App target 中手工添加的同名 bundle 及其 Copy Bundle Resources 条目，避免旧资源优先命中。
 
 ## App 根目录资源
 
-
-处理步骤：
-
-1. 下载对应 Package 的精确 tag 源码 ZIP。
-2. 解压后从表中的 `RootResources/` 路径取出整个 `.bundle`，拖入 Xcode。
-3. 勾选 **Copy items if needed** 和 App target。
-4. 在 **Build Phases > Copy Bundle Resources** 中确认资源只出现一次。
-5. 构建后确认最终路径为 `YourApp.app/<BundleName>.bundle`。
-
-| Bundle | 来源 Package | 下载 | 解压路径 | 最终路径 |
-| --- | --- | --- | --- | --- |
-| `AdsEyeADXAdBundle.bundle` | `AdsEyeADXSDK` `1.4.23` | [源码 ZIP](https://github.com/AdsEye/AdsEyeSDK-ADX/archive/refs/tags/1.4.23.zip) | `RootResources/AdsEyeADXAdBundle.bundle` | `YourApp.app/AdsEyeADXAdBundle.bundle` |
+当前组合没有需要手工复制到 App 根目录的资源。
 
 ## 已知事项
 
