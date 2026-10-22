@@ -83,6 +83,9 @@ known_issues = Array(catalog['known_issues']).select do |issue|
   issue_groups.empty? || !(issue_groups & selected_groups).empty?
 end
 
+# 自动资源只说明接入方式，不列入媒体手工复制到 App 根目录的清单。
+automatic_resources, resources = resources.partition { |resource| resource['copy_to_app_root'] == false }
+
 sdk_version = catalog.fetch('sdk').fetch('version').to_s
 minimum_ios = catalog.fetch('sdk').fetch('minimum_ios').to_s
 template_path = File.join(ROOT, 'templates', 'media-integration.md.erb')

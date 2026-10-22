@@ -8,7 +8,7 @@
 1. 在 Xcode 中选择 **File > Add Package Dependencies...**，逐项添加下表 URL 和精确版本。
 2. 将表中的 Product **直接添加到 App target**，不要通过本地聚合 Package 间接链接。
 3. App target 的 `Other Linker Flags` 保留 `$(inherited) -ObjC`。
-4. 下方列出的资源 bundle 必须加入 App target 的 **Copy Bundle Resources**，并最终位于 App 根目录。
+4. 仅下方“App 根目录资源”中列出的 bundle 需要加入 App target 的 **Copy Bundle Resources**。
 
 ## Package 列表
 
@@ -112,7 +112,16 @@ dependencies: [
 ]
 ```
 
+## 自动接入资源
+
+以下资源已由 SwiftPM 自动复制，添加对应 Product 后无需手动拖入：
+
+- `AdsEyeAdBundle.bundle`：由 `AdsEyeAdSDK` 自动交付。
+
+从旧接入方式升级时，请移除 App target 中手工添加的同名 bundle 及其 Copy Bundle Resources 条目，避免旧资源优先命中。
+
 ## App 根目录资源
+
 
 处理步骤：
 
@@ -124,7 +133,6 @@ dependencies: [
 
 | Bundle | 来源 Package | 下载 | 解压路径 | 最终路径 |
 | --- | --- | --- | --- | --- |
-| `AdsEyeAdBundle.bundle` | `AdsEyeAdSDK` `1.4.23` | [源码 ZIP](https://github.com/AdsEye/AdsEyeSDK/archive/refs/tags/1.4.23.zip) | `RootResources/AdsEyeAdBundle.bundle` | `YourApp.app/AdsEyeAdBundle.bundle` |
 | `PAGAdSDK.bundle` | `AdsGlobalPackage` `8.1.0-pod.6` | [源码 ZIP](https://github.com/AdsEye/AdsEyeSPM-Ads-Global/archive/refs/tags/8.1.0-pod.6.zip) | `RootResources/PAGAdSDK.bundle` | `YourApp.app/PAGAdSDK.bundle` |
 | `SmartdigimktSDK.bundle` | `SmartdigimktSDK` `6.5.65` | [源码 ZIP](https://github.com/AdsEye/AdsEyeSPM-SmartdigimktSDK/archive/refs/tags/6.5.65.zip) | `RootResources/SmartdigimktSDK.bundle` | `YourApp.app/SmartdigimktSDK.bundle` |
 

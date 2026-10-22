@@ -52,9 +52,10 @@
 ## 资源规则
 
 - `copy_to_app_root: true` 表示资源必须最终位于 `YourApp.app/<Bundle>.bundle`。
-- 不允许把这类资源放进 SwiftPM 自动生成的 `<Package>_<Target>.bundle`。
-- 媒体从来源 Package 的精确 tag 源码 ZIP 中取得 `RootResources/<Bundle>.bundle`，拖入 Xcode 时勾选 Copy items if needed 和 App target，并加入 Copy Bundle Resources。
-- 同名 bundle 在 Copy Bundle Resources 中只能出现一次，最终产物必须验证位于 `.app` 根目录。
+- `copy_to_app_root: false` 表示资源由 SwiftPM 自动接入，不能再引导媒体手工复制。1.4.23 Core 的 `AdsEyeAdBundle.bundle` 使用此方式，独立 ADX 保持手工接入。
+- `copy_to_app_root: true` 的资源不允许放进 SwiftPM 自动生成的 `<Package>_<Target>.bundle`。
+- 手动资源从来源 Package 的精确 tag 源码 ZIP 中取得 `RootResources/<Bundle>.bundle`，拖入 Xcode 时勾选 Copy items if needed 和 App target，并加入 Copy Bundle Resources。
+- 手动资源在 Copy Bundle Resources 中只能出现一次，最终产物必须验证位于 `.app` 根目录。
 - 新增或升级二进制时必须审计其 `NSBundle mainBundle`、`pathForResource:` 和资源 bundle 查找方式。
 
 ## 文档交付规则

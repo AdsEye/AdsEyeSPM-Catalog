@@ -628,10 +628,10 @@ profiles:
 resources:
   - bundle: AdsEyeAdBundle.bundle
     source_package: AdsEyeAdSDK
-    source_path: RootResources/AdsEyeAdBundle.bundle
+    source_path: Sources/AdsEyeCoreLinker/Resources/AdsEyeAdBundle.bundle
     groups: [core]
     trigger_packages: [AdsEyeAdSDK]
-    copy_to_app_root: true
+    copy_to_app_root: false
   - bundle: AdsEyeADXAdBundle.bundle
     source_package: AdsEyeADXSDK
     source_path: RootResources/AdsEyeADXAdBundle.bundle

@@ -112,6 +112,7 @@ catalog_files.each do |path|
   end
 
   catalog.fetch('resources').each do |resource|
+    fail_with("资源 #{resource.fetch('bundle')} 必须声明是否手工复制到 App 根目录") unless [true, false].include?(resource['copy_to_app_root'])
     source_package = resource.fetch('source_package')
     all_ids = ids + transitive_ids
     fail_with("资源 #{resource.fetch('bundle')} 来源 Package 不存在：#{source_package}") unless all_ids.include?(source_package)

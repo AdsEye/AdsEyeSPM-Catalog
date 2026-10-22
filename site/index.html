@@ -134,9 +134,9 @@
 
       <div id="panel-resources" class="tab-panel" role="tabpanel" hidden>
         <section class="result-section">
-          <h2>App 根目录资源</h2>
-          <div class="resource-instructions">
-            <strong>需要媒体手工加入 App target</strong>
+          <h2>资源接入</h2>
+          <div id="manual-resource-instructions" class="resource-instructions">
+            <strong>仅手动资源需要加入 App target，标记为“SwiftPM 自动接入”的资源无需拖入</strong>
             <ol>
               <li>下载对应 Package 的精确 tag 源码 ZIP。</li>
               <li>解压后找到表中 <code>RootResources/</code> 路径，将整个 <code>.bundle</code> 拖入 Xcode。</li>

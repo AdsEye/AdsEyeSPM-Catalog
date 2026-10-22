@@ -43,7 +43,7 @@
       'option-tiktok', 'tiktok-option-row', 'package-count', 'product-count', 'resource-count',
       'package-table-body', 'selection-title', 'selection-meta', 'catalog-status', 'swift-output',
       'markdown-output', 'resource-list', 'issue-list', 'copy-button', 'download-button', 'toast',
-      'mobile-result-button'
+      'mobile-result-button', 'manual-resource-instructions'
     ].forEach((id) => { elements[id] = document.getElementById(id); });
   }
 
@@ -399,21 +399,31 @@
   }
 
   function renderResources(resources) {
+    // 纯自动资源组合不显示手工拖入步骤，旧版及第三方资源仍保留操作说明。
+    elements['manual-resource-instructions'].hidden = !resources.some((item) => item.copy_to_app_root !== false);
     if (resources.length === 0) {
       elements['resource-list'].replaceChildren(emptyResult('当前组合没有 App 根目录资源'));
       return;
     }
     elements['resource-list'].replaceChildren(...resources.map((item) => {
       const source = packageRecord(item.source_package);
+      // 自动资源只展示接入说明，不再引导媒体重复下载或拖入。
+      const automatic = item.copy_to_app_root === false;
       const row = document.createElement('div');
       row.className = 'resource-row';
       const title = document.createElement('strong');
       title.textContent = item.bundle;
       const path = document.createElement('code');
-      path.textContent = `YourApp.app/${item.bundle}`;
+      path.textContent = automatic ? 'SwiftPM 自动接入' : `YourApp.app/${item.bundle}`;
       const meta = document.createElement('p');
       meta.className = 'resource-meta';
-      meta.textContent = `${item.source_package} ${source.version} · 解压后复制 ${item.source_path}`;
+      meta.textContent = automatic
+        ? `${item.source_package} ${source.version} · 无需手动拖入；升级时请移除 App 中手工添加的同名 bundle 及其 Copy Bundle Resources 条目。`
+        : `${item.source_package} ${source.version} · 解压后复制 ${item.source_path}`;
+      if (automatic) {
+        row.append(title, path, meta);
+        return row;
+      }
       const actions = document.createElement('div');
       actions.className = 'resource-actions';
       const treeLink = document.createElement('a');
@@ -487,7 +497,7 @@
       '1. 在 Xcode 中通过 File > Add Package Dependencies 添加下表仓库。',
       '2. 使用精确版本，并将 Product 直接添加到 App target。',
       '3. Other Linker Flags 保留 $(inherited) -ObjC。',
-      '4. 资源 bundle 必须复制到 App 根目录。',
+      '4. 仅“App 根目录资源”中列出的 bundle 需要手工复制到 App 根目录。',
       '',
       '## Package',
       '',
@@ -497,23 +507,35 @@
     selection.packages.forEach((item) => {
       lines.push(`| ${item.id} | ${item.version} | ${item.products.join(', ')} | ${item.url} |`);
     });
+    // 按清单的交付方式区分自动资源和手工资源，导出内容与页面保持一致。
+    const automaticResources = selection.resources.filter((item) => item.copy_to_app_root === false);
+    const manualResources = selection.resources.filter((item) => item.copy_to_app_root !== false);
+    if (automaticResources.length > 0) {
+      lines.push('', '## 自动接入资源', '', '以下资源由 SwiftPM 自动复制，无需手动拖入：', '');
+      automaticResources.forEach((item) => lines.push(`- ${item.bundle}（${item.source_package}）`));
+      lines.push('', '从旧接入方式升级时，请移除 App 中手工添加的同名 bundle 及其 Copy Bundle Resources 条目。');
+    }
     lines.push(
       '',
       '## App 根目录资源',
-      '',
-      '处理步骤：',
-      '',
-      '1. 下载对应 Package 的精确 tag 源码 ZIP。',
-      '2. 解压后从 RootResources 路径取出整个 .bundle，拖入 Xcode。',
-      '3. 勾选 Copy items if needed 和 App target。',
-      '4. 在 Build Phases > Copy Bundle Resources 中确认资源只出现一次。',
-      '5. 构建后确认路径为 YourApp.app/<BundleName>.bundle。',
       ''
     );
-    if (selection.resources.length === 0) {
-      lines.push('无。');
+    if (manualResources.length > 0) {
+      lines.push(
+        '处理步骤：',
+        '',
+        '1. 下载对应 Package 的精确 tag 源码 ZIP。',
+        '2. 解压后从 RootResources 路径取出整个 .bundle，拖入 Xcode。',
+        '3. 勾选 Copy items if needed 和 App target。',
+        '4. 在 Build Phases > Copy Bundle Resources 中确认资源只出现一次。',
+        '5. 构建后确认路径为 YourApp.app/<BundleName>.bundle。',
+        ''
+      );
+    }
+    if (manualResources.length === 0) {
+      lines.push('当前组合没有需要手工复制到 App 根目录的资源。');
     } else {
-      selection.resources.forEach((item) => {
+      manualResources.forEach((item) => {
         const source = packageRecord(item.source_package);
         lines.push(`- ${item.bundle}`);
         lines.push(`  - 来源：${item.source_package} ${source.version}`);
